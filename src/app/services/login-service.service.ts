@@ -10,7 +10,7 @@ export class LoginServiceService {
 
 
 
-  loginUser(user: User){
+  loginUser(user: User) {
     return this.http.post<User>(this.url, user);
   }
 

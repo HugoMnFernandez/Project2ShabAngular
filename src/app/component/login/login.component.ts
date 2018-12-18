@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../types/user';
 import { LoginServiceService } from '../../services/login-service.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,9 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
 
-  constructor(private loginService: LoginServiceService) { }
+  loginInfo: string;
+
+  constructor(private loginService: LoginServiceService, private router: Router) { }
 
   ngOnInit() {
     this.user = new User();
@@ -24,6 +27,19 @@ export class LoginComponent implements OnInit {
     this.user.password = this.password;
     this.user.isAdmin = false;
     this.loginService.loginUser(this.user).subscribe(
-      data => {this.user = data; console.log(data); });
+      data => this.setUser(data));
   }
+
+  setUser(data: User) {
+      this.user = data;
+      console.log(data);
+
+      if (this.user != null) {
+        this.router.navigate(['/home']);
+      } else {
+        this.user = new User();
+        this.loginInfo = 'Invalid Credentials';
+      }
+  }
+
 }
