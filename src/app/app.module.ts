@@ -10,6 +10,7 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { HomeComponent } from './component/home/home.component';
 import { UserServiceService } from './services/user-service.service';
 import { LoginServiceService } from './services/login-service.service';
+import { FollowHeroComponent } from './component/follow-hero/follow-hero.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { LoginServiceService } from './services/login-service.service';
     AppComponent,
     LoginComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    FollowHeroComponent
   ],
   imports: [
     BrowserModule,

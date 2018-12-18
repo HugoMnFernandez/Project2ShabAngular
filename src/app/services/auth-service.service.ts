@@ -7,7 +7,11 @@ export class AuthServiceService {
   constructor( private router: Router) { }
 
   checkUser() {
-    if (sessionStorage.getItem('user') == null) {
+    if (sessionStorage.length > 0) {
+      if (sessionStorage.getItem('user') == null) {
+        this.router.navigate(['/login']);
+      }
+    } else {
       this.router.navigate(['/login']);
     }
   }
