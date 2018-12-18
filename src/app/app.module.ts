@@ -15,6 +15,8 @@ import { BattlesComponent } from './component/battles/battles.component';
 // Services
 import { UserServiceService } from './services/user-service.service';
 import { LoginServiceService } from './services/login-service.service';
+import { FollowHeroComponent } from './component/follow-hero/follow-hero.component';
+
 import { CharacterService } from './services/character.service';
 
 @NgModule({
@@ -23,6 +25,7 @@ import { CharacterService } from './services/character.service';
     LoginComponent,
     NavbarComponent,
     HomeComponent,
+    FollowHeroComponent,
     BattlesComponent
   ],
   imports: [
