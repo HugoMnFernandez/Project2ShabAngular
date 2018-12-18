@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">SHAB</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -18,5 +18,27 @@
         <a class="nav-link disabled" href="#">Disabled</a>
       </li>
     </ul>
+  </div>
+</nav> -->
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <button class="navbar-toggler collapsed" aria-expanded="false" aria-controls="navbarCollapse" aria-label="Toggle navigation"
+      type="button" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+  </button><a class="navbar-brand" href="/home">SHAB</a>
+  <div class="navbar-collapse collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+              <a class="nav-link" href="/battles">Battles</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="/ladder">Ladder</a>
+          </li>
+      </ul>
+      <form class="form-inline mt-2 mt-md-0">
+          <a class="d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3" style="color: white;" id="username" href="/account"> {{user.username}} </a>
+          <button *ngIf="user != null" class="btn btn-outline-success" (click)="navigateToLogin()">Log Out</button>
+          <button *ngIf="user == null" class="btn btn-outline-success" (click)="navigateToLogin()">Log In</button>
+      </form>
   </div>
 </nav>

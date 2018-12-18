@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.user = new User();
+    sessionStorage.clear();
   }
 
   loginUser() {
@@ -36,6 +37,8 @@ export class LoginComponent implements OnInit {
 
       if (this.user != null) {
         this.router.navigate(['/home']);
+        sessionStorage.setItem('user', JSON.stringify(this.user));
+        location.reload();
       } else {
         this.user = new User();
         this.loginInfo = 'Invalid Credentials';
