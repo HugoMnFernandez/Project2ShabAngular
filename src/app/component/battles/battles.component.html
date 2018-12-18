@@ -1,4 +1,7 @@
 <input [(ngModel)]="name" type="text" placeholder="Enter Character Name Here"/>
 <button (click)="findCharacter()">Find Character</button>
-<p> {{characterName}}</p>
-<img src="{{imageSrc}}">
+<div *ngFor="let char of characters; let i=index">
+    <p> {{char.name}}</p> 
+    <img src="{{char.thumbnail.path}}.{{char.thumbnail.extension}}">
+</div>
+
