@@ -1,7 +1,22 @@
-<input [(ngModel)]="name" type="text" placeholder="Enter Character Name Here"/>
-<button (click)="findCharacter()">Find Character</button>
-<div *ngFor="let char of characters; let i=index">
-    <p> {{char.name}}</p> 
-    <img src="{{char.thumbnail.path}}.{{char.thumbnail.extension}}">
+<div class="d-flex flex-wrap">
+    <div id="team1">
+        <h3>Team 1</h3>
+        <p *ngFor="let selectedChar of selectedCharacters[0]; let i=index"> {{selectedChar.name}} </p>
+    </div>
+    <div >
+        <input [(ngModel)]="name" type="text" placeholder="Enter Character Name Here" />
+        <button (click)="findCharacter()">Find Character</button>
+    </div>
+    <div id="team2">
+        <h3>Team 2</h3>
+        <p *ngFor="let selectedChar of selectedCharacters[1]; let i=index"> {{selectedChar.name}} </p>
+    </div>
+</div>
+
+<div class="d-flex flex-wrap"> 
+    <div *ngFor="let char of characters; let i=index">
+        <p> {{char.name}}</p> 
+        <img src="{{char.thumbnail.path}}.{{char.thumbnail.extension}}" (click)="selectCharacter(char)">
+    </div>
 </div>
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/types/user';
 import { Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,8 +12,9 @@ export class NavbarComponent implements OnInit {
 
   user: User;
 
-  constructor( private router: Router) {
-    this.user = JSON.parse(sessionStorage.getItem('user'));
+  constructor( private router: Router, private authService: AuthServiceService) {
+
+    this.user = authService.checkUser();
 
    }
 

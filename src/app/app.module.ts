@@ -18,6 +18,7 @@ import { LoginServiceService } from './services/login-service.service';
 import { FollowHeroComponent } from './component/follow-hero/follow-hero.component';
 
 import { CharacterService } from './services/character.service';
+import { AuthServiceService } from './services/auth-service.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { CharacterService } from './services/character.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [LoginServiceService, UserServiceService, CharacterService],
+  providers: [LoginServiceService, UserServiceService, CharacterService, AuthServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
