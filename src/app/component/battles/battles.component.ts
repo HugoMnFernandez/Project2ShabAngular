@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CharacterResults } from 'src/app/types/character-results';
 import { CharacterService } from 'src/app/services/character.service';
 import { Character } from 'src/app/types/character';
+import { CharacterMarvelServiceService } from 'src/app/services/character-marvel-service.service';
 
 @Component({
   selector: 'app-battles',
@@ -18,24 +19,29 @@ export class BattlesComponent implements OnInit {
 
   selectedCharacters: Character[][];
 
+  selectedTeam: number;
+
   imageSrc: string;
 
   characterName: string;
 
-  constructor(private charService: CharacterService) { }
+  constructor(private charMarvelService: CharacterMarvelServiceService, private charService: CharacterService) { }
 
   ngOnInit() {
     this.characterResults = new CharacterResults();
-    this.selectedCharacters = [];
+    this.selectedTeam = 0;
+    this.selectedCharacters = [[], []];
+    this.selectedCharacters[0] = [];
+    this.selectedCharacters[1] = [];
   }
 
   findCharacter() {
-    this.charService.getCharacter(this.name).subscribe(data => this.setCharacter(data));
+    this.charMarvelService.getCharacterByName(this.name).subscribe(data => this.setCharacter(data));
   }
 
   setCharacter(data: CharacterResults) {
     this.characterResults = data;
-    this.characters = this.characterResults.data.results;
+    this.characters = this.charService.convertFromResultsToCharacters(this.characterResults);
   }
 
   selectCharacter(character: Character, team: number) {
@@ -43,9 +49,9 @@ export class BattlesComponent implements OnInit {
     let characterRemoved = false;
 
     // If the character has already been selected remove them from the array
-    this.selectedCharacters.forEach((item, index) => {
-      if (item[team].id === character.id) {
-        this.selectedCharacters.splice(index, 1);
+    this.selectedCharacters[team].forEach((item, index) => {
+      if (item.characterId === character.characterId) {
+        this.selectedCharacters[team].splice(index, 1);
         characterRemoved = true;
       }
     });
