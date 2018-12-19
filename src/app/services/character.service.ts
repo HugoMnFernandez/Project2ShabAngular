@@ -9,29 +9,27 @@ import { CharacterSpringServiceService } from './character-spring-service.servic
 export class CharacterService {
 
   constructor(private http: HttpClient,
-     private marvelService: CharacterMarvelServiceService,
-     private springService: CharacterSpringServiceService) { }
-
+    private marvelService: CharacterMarvelServiceService,
+    private springService: CharacterSpringServiceService) { }
+  character: Character;
 
 
   getCharacterById(id: number) {
-    let character = new Character();
-    character = this.springService.getCharacterById(id);
-    return this.http.get<CharacterResults>(characterUrl);
+    this.character = new Character();
+    // Get Spring info
+    this.findSingleCharacter(id);
+    // Get Marvel info
+    // Get character result and fill in the blanks!
+
+
+
+    // return full character
+    return this.character;
 
   }
 
-  convertCharacterResultToCharacters(characterResults: CharacterResults) {
-    let characters: Character[];
-    for (let i = 0; i < characterResults.data.results.length; i++) {
-      characters[i].characterId = characterResults.data.results[i].id;
-      characters[i].name = characterResults.data.results[i].name;
-      characters[i].description = characterResults.data.results[i].description;
-      characters[i].thumbnail = characterResults.data.results[i].thumbnail;
-    }
-
-    return characters;
-
+  findSingleCharacter(id: number) {
+    this.springService.getCharacterById(id).subscribe(data => this.character = data);
   }
 
 
