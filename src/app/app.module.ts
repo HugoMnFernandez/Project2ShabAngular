@@ -20,6 +20,7 @@ import { FollowHeroComponent } from './component/follow-hero/follow-hero.compone
 import { CharacterService } from './services/character.service';
 import { CharacterMarvelServiceService } from './services/character-marvel-service.service';
 import { CharacterSpringServiceService } from './services/character-spring-service.service';
+import { AuthServiceService } from './services/auth-service.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { CharacterSpringServiceService } from './services/character-spring-servi
     HttpClientModule
   ],
   providers: [LoginServiceService, UserServiceService, CharacterService,
-     CharacterMarvelServiceService, CharacterSpringServiceService],
+     CharacterMarvelServiceService, CharacterSpringServiceService, AuthServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

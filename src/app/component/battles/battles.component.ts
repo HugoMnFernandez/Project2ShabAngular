@@ -16,6 +16,8 @@ export class BattlesComponent implements OnInit {
 
   characters: Character[];
 
+  selectedCharacters: Character[][];
+
   imageSrc: string;
 
   characterName: string;
@@ -24,6 +26,7 @@ export class BattlesComponent implements OnInit {
 
   ngOnInit() {
     this.characterResults = new CharacterResults();
+    this.selectedCharacters = [];
   }
 
   findCharacter() {
@@ -33,8 +36,24 @@ export class BattlesComponent implements OnInit {
   setCharacter(data: CharacterResults) {
     this.characterResults = data;
     this.characters = this.characterResults.data.results;
-    // this.imageSrc = this.characterResults.data.results[0].thumbnail.path + '.'
-    // + this.characterResults.data.results[0].thumbnail.extension;
-    // this.characterName = this.characterResults.data.results[0].name;
   }
+
+  selectCharacter(character: Character, team: number) {
+
+    let characterRemoved = false;
+
+    // If the character has already been selected remove them from the array
+    this.selectedCharacters.forEach((item, index) => {
+      if (item[team].id === character.id) {
+        this.selectedCharacters.splice(index, 1);
+        characterRemoved = true;
+      }
+    });
+
+    // If the character has not been selected add them to the array
+    if (!characterRemoved) {
+      this.selectedCharacters[team].push(character);
+    }
+  }
+
 }

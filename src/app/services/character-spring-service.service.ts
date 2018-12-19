@@ -12,7 +12,7 @@ export class CharacterSpringServiceService {
   getCharacterById(id: number) {
 
     const characterUrl = this.springURL + '/' + id;
-    return JSON.parse(this.http.get<Character>(characterUrl));
+    return this.http.get<Character>(characterUrl);
 
   }
 }
