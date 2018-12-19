@@ -10,6 +10,8 @@ export class AuthServiceService {
     if (sessionStorage.length > 0) {
       if (sessionStorage.getItem('user') == null) {
         this.router.navigate(['/login']);
+      } else {
+        return sessionStorage.getItem('user');
       }
     } else {
       this.router.navigate(['/login']);
