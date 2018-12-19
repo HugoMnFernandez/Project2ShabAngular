@@ -22,7 +22,10 @@ export class CharacterService {
     this.findSingleCharacter(id);
     // Get Marvel info
     // Get character result and fill in the blanks!
-    this.marvelService.getCharacterById(id);
+
+    while (!this.character.characterId) {
+      waits(1);
+    }
 
     // return full character
     return this.character;
@@ -30,11 +33,11 @@ export class CharacterService {
   }
 
   findSingleCharacter(id: number) {
-    return this.springService.getCharacterById(id).subscribe(data => { this.character = data; return this.addApiInfo(id); });
+    return this.springService.getCharacterById(id).subscribe(data => { this.character = data; this.addApiInfo(id); });
   }
 
   addApiInfo(id: number) {
-    this.marvelService.getCharacterById(id).subscribe(data => {this.results = data; return this.updateCharacter(); });
+    this.marvelService.getCharacterById(id).subscribe(data => {this.results = data; this.updateCharacter(); });
   }
 
   updateCharacter(): Character {
