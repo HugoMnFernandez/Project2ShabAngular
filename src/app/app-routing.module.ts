@@ -3,12 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './component/login/login.component';
 import { HomeComponent } from './component/home/home.component';
 import { CreateBattlesComponent } from './component/create-battles/create-battles.component';
+import { ViewActiveBattlesComponent } from './component/view-active-battles/view-active-battles.component';
 
 const routes: Routes = [
 { path: '', redirectTo: '/home', pathMatch: 'full' },
 {path: 'login', component: LoginComponent},
 {path: 'home', component: HomeComponent},
-{path: 'battles', component: CreateBattlesComponent}];
+{path: 'create-battle', component: CreateBattlesComponent},
+{path: 'battles', component: ViewActiveBattlesComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
