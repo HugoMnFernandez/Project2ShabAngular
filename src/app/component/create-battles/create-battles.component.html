@@ -1,0 +1,47 @@
+<div class="container center_div">
+    <h1>Create a Battle</h1>
+    <div class="d-flex container center_div">
+        <div [ngStyle]="styleState1" class="team-div" id="team1" (click)="team1Click()">
+            <h3>Team 1</h3>
+            <p *ngFor="let selectedChar of selectedCharacters[0]; let i=index"> {{selectedChar.name}} </p>
+        </div>
+        <div id="contentDiv">
+            <div class="form-row">
+                <div class="form-group">
+                    <input class="form-control" [(ngModel)]="location" type="text" placeholder="Location of Battle">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success btn-lg" (click)="createBattle()" >Create Battle </button>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="startDate">Start Date</label>
+                    <input [(ngModel)]="startDate" type="date" id="startDate" name="startDate" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="endDate">End Date</label> 
+                    <input [(ngModel)]="endDate" type="date" id="endDate" class="form-control" name="endDate">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <input class=" form-control" [(ngModel)]="name" type="text" placeholder="Search Characters.." />
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-outline-success" (click)="findCharacter()">Find Character</button>
+                </div>
+            </div>
+            <div class="d-flex flex-wrap">
+                <div *ngFor="let char of characters; let i=index">
+                    <p> {{char.name}}</p>
+                    <img src="{{char.thumbnail.path}}.{{char.thumbnail.extension}}" (click)="selectCharacter(char, selectedTeam)">
+                </div>
+            </div>
+        </div>
+        <div [ngStyle]="styleState2" class="team-div" id="team2" (click)="team2Click()">
+            <h3>Team 2</h3>
+            <p *ngFor="let selectedChar of selectedCharacters[1]; let i=index"> {{selectedChar.name}} </p>
+        </div>
+    </div>
+</div>
