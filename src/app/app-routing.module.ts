@@ -4,13 +4,15 @@ import { LoginComponent } from './component/login/login.component';
 import { HomeComponent } from './component/home/home.component';
 import { CreateBattlesComponent } from './component/create-battles/create-battles.component';
 import { ViewActiveBattlesComponent } from './component/view-active-battles/view-active-battles.component';
+import { ViewBattleComponent } from './component/view-battle/view-battle.component';
 
 const routes: Routes = [
 { path: '', redirectTo: '/home', pathMatch: 'full' },
 {path: 'login', component: LoginComponent},
 {path: 'home', component: HomeComponent},
 {path: 'create-battle', component: CreateBattlesComponent},
-{path: 'battles', component: ViewActiveBattlesComponent}];
+{path: 'battles', component: ViewActiveBattlesComponent},
+{path: 'view-battle', component: ViewBattleComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

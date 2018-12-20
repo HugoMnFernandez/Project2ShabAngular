@@ -20,7 +20,7 @@ export class CharacterMarvelServiceService {
 
   getCharacterById(id: number) {
 
-    const characterUrl = this.marvelUrl + '/' + id + '&' + this.suffix;
+    const characterUrl = this.marvelUrl + '/' + id + '?' + this.suffix;
     return this.http.get<CharacterResults>(characterUrl);
 
   }

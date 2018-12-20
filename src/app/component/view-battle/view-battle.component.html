@@ -1,3 +1,28 @@
-<p>
-  view-battle works!
-</p>
+<h2>Battle Location: {{battle.location}}</h2>
+<div class="d-flex container center_div">
+  <div>
+    <div class="team-div" id="team1">
+      <h3>Team 1</h3>
+      <div class="d-flex container center_div">
+        <div *ngFor="let char of battle.team1.characters">
+          <p> {{char.name}} </p>
+          <img src="{{char.thumbnail.path}}.{{char.thumbnail.extension}}" />
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-success" (click)="voteTeam1()">Vote</button>
+  </div>
+  <div>
+    <div class="team-div" id="team2">
+      <h3>Team 2</h3>
+      <div class="d-flex container center_div">
+        <div *ngFor="let char of battle.team2.characters">
+          <p> {{char.name}} </p>
+          <img src="{{char.thumbnail.path}}.{{char.thumbnail.extension}}" />
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-success" (click)="voteTeam2()">Vote</button>
+  </div>
+
+</div>
