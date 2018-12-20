@@ -21,6 +21,7 @@ import { CharacterService } from './services/character.service';
 import { CharacterMarvelServiceService } from './services/character-marvel-service.service';
 import { CharacterSpringServiceService } from './services/character-spring-service.service';
 import { AuthServiceService } from './services/auth-service.service';
+import { ViewActiveBattlesComponent } from './component/view-active-battles/view-active-battles.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AuthServiceService } from './services/auth-service.service';
     NavbarComponent,
     HomeComponent,
     FollowHeroComponent,
-    BattlesComponent
+    BattlesComponent,
+    ViewActiveBattlesComponent
   ],
   imports: [
     BrowserModule,
