@@ -10,6 +10,7 @@ export class BattleService {
   readonly url = `http://localhost:8080/Shab/battle`;
 
 
+
   addBattle(battle: Battle) {
     console.log('creating battle: ' + battle);
     return this.http.post<Battle>(this.url, battle);
@@ -17,5 +18,9 @@ export class BattleService {
 
   getBattleById(id: number) {
     return this.http.get<Battle>(this.url + '/' + id);
+  }
+
+  getAllActiveBattles() {
+    return this.http.get<Battle>(this.url);
   }
 }

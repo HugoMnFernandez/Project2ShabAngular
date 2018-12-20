@@ -24,7 +24,7 @@ export class CharacterService {
     // Get character result and fill in the blanks!
 
     while (!this.character.characterId) {
-      waits(1);
+      // waits(1);
     }
 
     // return full character

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Battle } from 'src/app/types/battle';
+import { BattleService } from 'src/app/services/battle.service';
 
 @Component({
   selector: 'app-view-active-battles',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewActiveBattlesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private battleService: BattleService) { }
+  battles: Battle[];
 
   ngOnInit() {
+    this.getActiveBattles();
+  }
+
+  getActiveBattles() {
+    this.battleService.getAllActiveBattles().subscribe(data => this.battles);
   }
 
 }
