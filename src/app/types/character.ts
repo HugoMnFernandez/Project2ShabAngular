@@ -7,7 +7,6 @@ export class Character {
     wins: number;
     losses: number;
     rank: number;
-    teams: Team[];
 // Marvel API stuff
     name: string;
     description: string;

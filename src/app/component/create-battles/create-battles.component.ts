@@ -6,6 +6,7 @@ import { CharacterMarvelServiceService } from 'src/app/services/character-marvel
 import { BattleService } from 'src/app/services/battle.service';
 import { Battle } from 'src/app/types/battle';
 import { Team } from 'src/app/types/team';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-battles',
@@ -26,6 +27,9 @@ export class CreateBattlesComponent implements OnInit {
 
   endDate: string;
 
+  // message to display if trying to create an incomplete battle
+  message: string;
+
   selectedCharacters: Character[][];
 
   selectedTeam: number;
@@ -43,8 +47,9 @@ export class CreateBattlesComponent implements OnInit {
   };
 
   constructor(private battleService: BattleService,
-              private charMarvelService: CharacterMarvelServiceService,
-              private charService: CharacterService) { }
+    private charMarvelService: CharacterMarvelServiceService,
+    private charService: CharacterService,
+    private router: Router) { }
 
   ngOnInit() {
     this.characterResults = new CharacterResults();
@@ -105,18 +110,24 @@ export class CreateBattlesComponent implements OnInit {
   }
 
   createBattle() {
-    let battle: Battle;
-    battle = new Battle();
-    battle.location = this.location;
-    battle.result = 0;
-    battle.startDate = this.startDate;
-    battle.endDate = this.endDate;
-    battle.team1Votes = 0;
-    battle.team2Votes = 0;
-    battle.team1 = new Team(this.selectedCharacters[0]);
-    battle.team2 = new Team(this.selectedCharacters[1]);
+    if (!this.location || !this.startDate || !this.endDate ||
+        this.selectedCharacters[0].length < 1 || this.selectedCharacters[1].length < 1) {
+      this.message = 'Make sure you have entered all inputs and selected at least 1 character for each team.';
+    } else {
+      let battle: Battle;
+      battle = new Battle();
+      battle.location = this.location;
+      battle.result = 0;
+      battle.startDate = this.startDate;
+      battle.endDate = this.endDate;
+      battle.team1Votes = 0;
+      battle.team2Votes = 0;
+      battle.team1 = new Team(this.selectedCharacters[0]);
+      battle.team2 = new Team(this.selectedCharacters[1]);
 
-    console.log(battle);
-    this.battleService.addBattle(battle).subscribe();
+      console.log(battle);
+      this.battleService.addBattle(battle).subscribe();
+      this.router.navigate(['/battles']);
+    }
   }
 }

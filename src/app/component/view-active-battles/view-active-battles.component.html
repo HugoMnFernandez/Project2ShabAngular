@@ -3,11 +3,11 @@
       <ul>
           <li *ngFor="let battle of battles">
             <div class="team1div">
-              <p>battle.team1votes</p>
+              <p>{{battle.team1votes}}</p>
               <img *ngFor="let char of battle.team1.characters" src="{{char.thumbnail.path}}.{{char.thumbnail.extension}}">
             </div>
             <div class="team2div">
-              <p>battle.team2votes</p>
+              <p>{{battle.team2votes}}</p>
               <img *ngFor="let char of battle.team2.characters" src="{{char.thumbnail.path}}.{{char.thumbnail.extension}}">
             </div>
           </li>

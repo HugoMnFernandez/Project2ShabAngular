@@ -17,7 +17,7 @@ export class ViewActiveBattlesComponent implements OnInit {
   }
 
   getActiveBattles() {
-    this.battleService.getAllActiveBattles().subscribe(data => this.battles);
+    this.battleService.getAllActiveBattles().subscribe(data => this.battles = data);
   }
 
 }

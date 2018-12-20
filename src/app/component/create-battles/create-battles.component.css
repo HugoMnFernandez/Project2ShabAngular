@@ -4,6 +4,11 @@ img {
 
 #contentDiv {
    width: 50%;
+   
+}
+
+#message {
+   color: red;
 }
 
 p {
@@ -13,22 +18,35 @@ p {
 }
 
 button {
- 
+
    float: none;
+   margin-top: 10px;
+   margin-bottom: 20px;
 }
 
 input {
-   width: 200px;
+   width: 175px;
+}
+
+h3 {
+   margin-top: 10pt;
 }
 
 .team-div {
    border-color: black;
    cursor: pointer;
+   margin-top: 0;
+}
+
+#form-div {
+   margin-top: 0;
+   width:  50%
 }
 
 div {
    text-align: center;
    margin: auto;
+   margin-top: 0;
 }
 
 h3 {

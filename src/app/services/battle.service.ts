@@ -21,6 +21,6 @@ export class BattleService {
   }
 
   getAllActiveBattles() {
-    return this.http.get<Battle>(this.url);
+    return this.http.get<Battle[]>(this.url);
   }
 }

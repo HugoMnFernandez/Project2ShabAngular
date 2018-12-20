@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
       console.log(data);
 
       if (this.user != null) {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/battles']);
         sessionStorage.setItem('user', JSON.stringify(this.user));
         location.reload();
       } else {
