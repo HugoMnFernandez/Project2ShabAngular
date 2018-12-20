@@ -10,18 +10,20 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './component/login/login.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { HomeComponent } from './component/home/home.component';
-import { BattlesComponent } from './component/battles/battles.component';
+import { CreateBattlesComponent } from './component/create-battles/create-battles.component';
+import { ViewBattleComponent } from './component/view-battle/view-battle.component';
+import { FollowHeroComponent } from './component/follow-hero/follow-hero.component';
 
 // Services
 import { UserServiceService } from './services/user-service.service';
 import { LoginServiceService } from './services/login-service.service';
-import { FollowHeroComponent } from './component/follow-hero/follow-hero.component';
-
 import { CharacterService } from './services/character.service';
 import { CharacterMarvelServiceService } from './services/character-marvel-service.service';
 import { CharacterSpringServiceService } from './services/character-spring-service.service';
 import { AuthServiceService } from './services/auth-service.service';
 import { ViewActiveBattlesComponent } from './component/view-active-battles/view-active-battles.component';
+import { BattleService } from './services/battle.service';
+
 
 @NgModule({
   declarations: [
@@ -30,8 +32,9 @@ import { ViewActiveBattlesComponent } from './component/view-active-battles/view
     NavbarComponent,
     HomeComponent,
     FollowHeroComponent,
-    BattlesComponent,
-    ViewActiveBattlesComponent
+    ViewActiveBattlesComponent,
+    CreateBattlesComponent,
+    ViewBattleComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,7 @@ import { ViewActiveBattlesComponent } from './component/view-active-battles/view
     HttpClientModule
   ],
   providers: [LoginServiceService, UserServiceService, CharacterService,
-     CharacterMarvelServiceService, CharacterSpringServiceService, AuthServiceService],
+     CharacterMarvelServiceService, CharacterSpringServiceService, AuthServiceService, BattleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
