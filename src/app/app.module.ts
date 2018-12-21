@@ -23,6 +23,7 @@ import { CharacterSpringServiceService } from './services/character-spring-servi
 import { AuthServiceService } from './services/auth-service.service';
 import { ViewActiveBattlesComponent } from './component/view-active-battles/view-active-battles.component';
 import { BattleService } from './services/battle.service';
+import { LadderComponent } from './component/ladder/ladder.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { BattleService } from './services/battle.service';
     FollowHeroComponent,
     ViewActiveBattlesComponent,
     CreateBattlesComponent,
-    ViewBattleComponent
+    ViewBattleComponent,
+    LadderComponent
   ],
   imports: [
     BrowserModule,

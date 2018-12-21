@@ -15,4 +15,8 @@ export class CharacterSpringServiceService {
     return this.http.get<Character>(characterUrl);
 
   }
+
+  getLadder() {
+    return this.http.get<Character[]>(this.springURL + '/ladder');
+  }
 }

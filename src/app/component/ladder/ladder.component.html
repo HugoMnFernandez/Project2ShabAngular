@@ -1,0 +1,23 @@
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Score</th>
+      <th scope="col">Win</th>
+      <th scope="col">Losses</th>
+      <th scope="col">Picture</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let character of characters; let i=index;">
+      <td>{{(i+1)}}</td>
+      <td>{{character.name}}</td>
+      <td>{{character.score}}</td>
+      <td>{{character.wins}}</td>
+      <td>{{character.losses}}</td>
+      <td><img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}"></td>
+    </tr>
+
+  </tbody>
+</table>
